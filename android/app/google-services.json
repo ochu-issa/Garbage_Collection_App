@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "947161036252",
+    "project_id": "garbage-app-e34bf",
+    "storage_bucket": "garbage-app-e34bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947161036252:android:7f2493ac60a15f25e84b19",
+        "android_client_info": {
+          "package_name": "com.example.card_based_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947161036252-75fq3pjfotjl2f00c6r424o6e9i14ruk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcTUPuQLJIMG3BOCf_ZWma7nTm004Tn-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947161036252-75fq3pjfotjl2f00c6r424o6e9i14ruk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

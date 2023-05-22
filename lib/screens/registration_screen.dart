@@ -1,16 +1,20 @@
+import 'package:card_based_app/controllers/authentication.dart';
 import 'package:card_based_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../custome/colorLibrary.dart';
 import '../widgets/customized_button.dart';
 import '../widgets/customized_field.dart';
 
 class RegistrationScreen extends StatelessWidget {
-  final TextEditingController _myUsername = TextEditingController();
+  final TextEditingController _firstName = TextEditingController();
+  final TextEditingController _lastName = TextEditingController();
   final TextEditingController _myEmailAddress = TextEditingController();
   final TextEditingController _myPassword = TextEditingController();
   final TextEditingController _myConfirmPassword = TextEditingController();
-
+  final AuthenticationController _authenticationController =
+      Get.put(AuthenticationController());
   RegistrationScreen({Key? key}) : super(key: key);
 
   @override
@@ -57,8 +61,13 @@ class RegistrationScreen extends StatelessWidget {
                     ),
                   ),
                   CustomizedField(
-                    myController: _myUsername,
-                    hintText: "Username",
+                    myController: _firstName,
+                    hintText: "First Name",
+                    isPassword: false,
+                  ),
+                  CustomizedField(
+                    myController: _lastName,
+                    hintText: "Last Name",
                     isPassword: false,
                   ),
                   CustomizedField(
@@ -71,18 +80,24 @@ class RegistrationScreen extends StatelessWidget {
                     hintText: "Password",
                     isPassword: true,
                   ),
-                  CustomizedField(
-                    myController: _myConfirmPassword,
-                    hintText: "Confirm Password",
-                    isPassword: true,
-                  ),
-
+                  // CustomizedField(
+                  //   myController: _myConfirmPassword,
+                  //   hintText: "Confirm Password",
+                  //   isPassword: true,
+                  // ),
                   CustomizedButton(
-                    buttonColor: Colors.black,
-                    buttonText: "Register",
-                    textColor: Colors.white,
-                    onPress: (){},
-                  ),
+                            buttonColor: Colors.black,
+                            buttonText: "Register",
+                            textColor: Colors.white,
+                            onPress: () async {
+                              await _authenticationController.register(
+                                  firstName: _firstName.text.trim(),
+                                  lastName: _lastName.text.trim(),
+                                  email: _myEmailAddress.text.trim(),
+                                  password: _myPassword.text.trim(),
+                              );
+                            }, authenticationController: _authenticationController,
+                          ),
 
                   Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -101,10 +116,7 @@ class RegistrationScreen extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const LoginScreen()),
-                            );
+                              Get.to(() => LoginScreen());
                           },
                           child: const Text(
                             "Login now!",

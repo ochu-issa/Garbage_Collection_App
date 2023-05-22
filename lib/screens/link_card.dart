@@ -46,16 +46,16 @@ class _LinkCardScreenState extends State<LinkCardScreen> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           "Link card",
                           style: TextStyle(
-                              fontSize: 22,
+                              fontSize: 30,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),
                         ),
@@ -67,17 +67,17 @@ class _LinkCardScreenState extends State<LinkCardScreen> {
                     hintText: "Card Number",
                     isPassword: false,
                   ),
-                  CustomizedButton(
-                    buttonColor: Colors.black,
-                    buttonText: "Link card",
-                    textColor: Colors.white,
-                    onPress: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const ConfirmRequest()),
-                      );
-                    },
-                  ),
+                  // CustomizedButton(
+                  //   buttonColor: Colors.black,
+                  //   buttonText: "Link card",
+                  //   textColor: Colors.white,
+                  //   onPress: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(builder: (context) => const ConfirmRequest()),
+                  //     );
+                  //   },
+                  // ),
                 ],
               ),
             ),

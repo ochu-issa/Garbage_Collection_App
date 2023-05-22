@@ -53,16 +53,16 @@ class _ConfirmRequestState extends State<ConfirmRequest> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "Confirm your request",
                         style: TextStyle(
-                            fontSize: 22,
+                            fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
                       ),
@@ -95,10 +95,10 @@ class _ConfirmRequestState extends State<ConfirmRequest> {
                       children: [
                         Container(
                           padding: const EdgeInsets.all(20),
-                          child: Column(
+                          child: const Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               Text(
                                 "Card Number",
                                 style: TextStyle(
@@ -162,10 +162,10 @@ class _ConfirmRequestState extends State<ConfirmRequest> {
 
                         Container(
                           padding: const EdgeInsets.all(20),
-                          child: Column(
+                          child: const Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               Text(
                                 "1020304050",
                                 style: TextStyle(
@@ -231,14 +231,14 @@ class _ConfirmRequestState extends State<ConfirmRequest> {
                     ),
                   ),
                 ),
-                CustomizedButton(
-                  buttonText: "Submit your request",
-                  buttonColor: Colors.black,
-                  textColor: MyCustomeColors.fieldColor,
-                  onPress: () {
-                    ShowAlert();
-                  },
-                )
+                // CustomizedButton(
+                //   buttonText: "Submit your request",
+                //   buttonColor: Colors.black,
+                //   textColor: MyCustomeColors.fieldColor,
+                //   onPress: () {
+                //     ShowAlert();
+                //   },
+                // )
               ],
             ),
           ),

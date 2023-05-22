@@ -61,12 +61,12 @@ class _RequestScreenState extends State<RequestScreen> {
                         const Text(
                           "Requesting Recycling Service",
                           style: TextStyle(
-                              fontSize: 22,
+                              fontSize: 30,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 22,
                         ),
                         const Text(
                           "Before requesting make sure your card is linked to \nthis device",
@@ -118,17 +118,17 @@ class _RequestScreenState extends State<RequestScreen> {
                     hintText: "Phone Number",
                     isPassword: false,
                   ),
-                  CustomizedButton(
-                    buttonColor: Colors.black,
-                    buttonText: "Proceed",
-                    textColor: Colors.white,
-                    onPress: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const ConfirmRequest()),
-                        );
-                    },
-                  ),
+                  // CustomizedButton(
+                  //   buttonColor: Colors.black,
+                  //   buttonText: "Proceed",
+                  //   textColor: Colors.white,
+                  //   onPress: () {
+                  //       Navigator.push(
+                  //         context,
+                  //         MaterialPageRoute(builder: (context) => const ConfirmRequest()),
+                  //       );
+                  //   },
+                  // ),
                 ],
               ),
             ),

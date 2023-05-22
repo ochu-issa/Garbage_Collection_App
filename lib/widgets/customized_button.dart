@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../controllers/authentication.dart';
 
 class CustomizedButton extends StatelessWidget {
   final String? buttonText;
   final Color? buttonColor;
   final Color? textColor;
   final VoidCallback? onPress;
-  const CustomizedButton({Key? key, this.buttonText, this.buttonColor, this.onPress, this.textColor}) : super(key: key);
+  // final AuthenticationController _authenticationController =
+  // Get.put(AuthenticationController());
+  final AuthenticationController authenticationController;
+
+  const CustomizedButton({Key? key, this.buttonText, this.buttonColor, this.onPress, this.textColor, required this.authenticationController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +29,18 @@ class CustomizedButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child:  Center(
-            child: Text(
-              buttonText!,
-              style: TextStyle(color: textColor, fontSize: 20),),),
+            child: Obx(() {
+                return authenticationController.isLoading.value
+                  ?  const Center(
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
+                  ),
+                )
+                  :Text(
+                  buttonText!,
+                  style: TextStyle(color: textColor, fontSize: 20),);
+              }
+            ),),
         ),
       ),
     );

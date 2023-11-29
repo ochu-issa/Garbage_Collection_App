@@ -1,4 +1,9 @@
+import 'package:card_based_app/controllers/app_service_controller.dart';
+import 'package:card_based_app/controllers/authentication.dart';
+import 'package:card_based_app/custome/colorLibrary.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import ' confirm_request.dart';
 import '../widgets/customized_button.dart';
@@ -13,6 +18,7 @@ class LinkCardScreen extends StatefulWidget {
 
 class _LinkCardScreenState extends State<LinkCardScreen> {
   final TextEditingController _cardNumber = TextEditingController();
+  final AppServiceController _appServiceController = Get.put(AppServiceController());
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -26,6 +32,9 @@ class _LinkCardScreenState extends State<LinkCardScreen> {
             child: Container(
               height: MediaQuery.of(context).size.height,
               width: double.infinity,
+              decoration: const BoxDecoration(
+                color: MyCustomeColors.backgroundColor,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -76,7 +85,7 @@ class _LinkCardScreenState extends State<LinkCardScreen> {
                   //       context,
                   //       MaterialPageRoute(builder: (context) => const ConfirmRequest()),
                   //     );
-                  //   },
+                  //   }, authenticationController: _appServiceController,
                   // ),
                 ],
               ),

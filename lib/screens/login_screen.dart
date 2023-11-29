@@ -14,9 +14,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 class LoginScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  // final AuthenticationController _authenticationController =
-  //     Get.put(AuthenticationController());
-  final AuthenticationController _authenticationController = AuthenticationController();
+  final AuthenticationController _authenticationController =
+      Get.put(AuthenticationController());
+ //final AuthenticationController _authenticationController = AuthenticationController();
 
 
   LoginScreen({Key? key}) : super(key: key);
@@ -86,29 +86,19 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // CustomizedButton(
-                  //   textColor: Colors.white,
-                  //   buttonText: "Login",
-                  //   buttonColor: Colors.black,
-                  //   onPress: () async {
-                  //     await _authenticationController.login(
-                  //       email: _emailController.text!.trim(),
-                  //       password: _passwordController.text!.trim(),
-                  //     );
-                  //   },
-                  //   authenticationController: _authenticationController,
-                  // ),
                   CustomizedButton(
                     textColor: Colors.white,
                     buttonText: "Login",
                     buttonColor: Colors.black,
-                    onPress: () async{
-                      await _authenticationController.logIn(
-                          email: _emailController.text!.trim(),
-                          password: _passwordController.text.trim());
+                    onPress: () async {
+                      await _authenticationController.login(
+                        email: _emailController.text!.trim(),
+                        password: _passwordController.text!.trim(),
+                      );
                     },
                     authenticationController: _authenticationController,
                   ),
+
                   const SizedBox(
                     height: 10,
                   ),

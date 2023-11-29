@@ -1,4 +1,5 @@
 import 'package:card_based_app/screens/home_screen.dart';
+import 'package:card_based_app/screens/link_card.dart';
 import 'package:card_based_app/screens/login_screen.dart';
 import 'package:card_based_app/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,13 +11,16 @@ class BottomNavigationWidget extends StatefulWidget {
   const BottomNavigationWidget({Key? key}) : super(key: key);
 
   @override
-  State<BottomNavigationWidget> createState() =>
-      _BottomNavigationWidgetState();
+  State<BottomNavigationWidget> createState() => _BottomNavigationWidgetState();
 }
 
 class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
-  int selectedIndex = 0;
-  final List<Widget> screens = [    HomeScreen(),    RegistrationScreen(),    LoginScreen(),  ];
+  int _selectedIndex = 1;
+  static List<Widget> screen = <Widget>[
+    const HomeScreen(),
+    RegistrationScreen(),
+    const LinkCardScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,11 +34,6 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
         child: GNav(
-          onTabChange: (index) {
-            setState(() {
-              selectedIndex = index;
-            });
-          },
           gap: 8,
           backgroundColor: Colors.white,
           activeColor: Colors.black,
@@ -55,9 +54,17 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
               text: "Profile",
             ),
           ],
-          selectedIndex: selectedIndex,
+          selectedIndex: _selectedIndex,
+          onTabChange: (index) {
+            setState(() {
+              _selectedIndex = index;
+              print(_selectedIndex);
+            });
+          },
         ),
       ),
     );
   }
 }
+
+
